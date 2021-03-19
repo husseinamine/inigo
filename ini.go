@@ -6,10 +6,10 @@ import (
 )
 
 type SectionKey string
-type SectionValue map[string]string
+type Section map[string]string
 
-func Loads(config string) map[SectionKey]SectionValue {
-	data := make(map[SectionKey]SectionValue)
+func Loads(config string) map[SectionKey]Section {
+	data := make(map[SectionKey]Section)
 	section := SectionKey("")
 
 	for _, line := range strings.Split(config, "\n") {
@@ -22,7 +22,7 @@ func Loads(config string) map[SectionKey]SectionValue {
 			section = SectionKey(strings.TrimSpace(line))
 
 			if _, ok := data[section]; !ok {
-				data[section] = make(SectionValue)
+				data[section] = make(Section)
 			}
 		} else {
 			if strings.Contains(line, "=") {
@@ -44,7 +44,7 @@ func Loads(config string) map[SectionKey]SectionValue {
 	return data
 }
 
-func Dumps(json map[SectionKey]SectionValue) string {
+func Dumps(json map[SectionKey]Section) string {
 	text := ""
 
 	for section := range json {

@@ -10,12 +10,12 @@ func TestLoads(t *testing.T) {
 
 	fmt.Println(j["main"]["key"])
 
-	j2 := make(map[SectionKey]SectionValue)
+	j2 := make(map[SectionKey]Section)
 
-	j2["main"] = make(SectionValue)
+	j2["main"] = make(Section)
 	j2["main"]["key"] = "value"
 
-	j2["debug"] = make(SectionValue)
+	j2["debug"] = make(Section)
 	j2["debug"]["keyfsafdsa"] = "value::==1=23=:??!#?/'\"a\"'"
 
 	fmt.Println(Dumps(j2))
