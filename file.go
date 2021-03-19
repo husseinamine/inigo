@@ -5,12 +5,12 @@ import (
 	"os"
 )
 
-func Load(path string) map[SectionKey]Section {
-	f, _ := os.Open(path)
+func Load(path string) (map[SectionKey]Section, error) {
+	f, err := os.Open(path)
 
 	content, _ := ioutil.ReadAll(f)
 
-	return Loads(string(content))
+	return Loads(string(content)), err
 }
 
 func Dump(json map[SectionKey]Section, path string) error {
