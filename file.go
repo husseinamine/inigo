@@ -2,16 +2,12 @@ package ini
 
 import (
 	"io/ioutil"
-	"os"
 )
 
 func Load(path string) (map[SectionKey]Section, error) {
-	f, err := os.Open(path)
-	defer f.Close()
+	f, err := ioutil.ReadFile(path)
 
-	content, _ := ioutil.ReadAll(f)
-
-	return Loads(string(content)), err
+	return Loads(string(f)), err
 }
 
 func Dump(json map[SectionKey]Section, path string) error {
