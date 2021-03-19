@@ -20,7 +20,7 @@ func TestLoads(t *testing.T) {
 
 	fmt.Println(Dumps(j2))
 
-	Dump("test.ini", j2)
+	Dump(j2, "test.ini")
 
 	j3 := Load("test.ini")
 

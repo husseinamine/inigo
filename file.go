@@ -13,7 +13,7 @@ func Load(path string) map[SectionKey]Section {
 	return Loads(string(content))
 }
 
-func Dump(path string, json map[SectionKey]Section) error {
+func Dump(json map[SectionKey]Section, path string) error {
 	data := Dumps(json)
 
 	return ioutil.WriteFile(path, []byte(data), 777)
