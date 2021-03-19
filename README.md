@@ -6,6 +6,9 @@
 ### parse string
 ```go
 j := ini.Loads("[main]\nkey = 'value==val;lues'\n; key3 = 'value3\nkey432' =     \"423890fsda=432fds=f=\"")
+
+// get a key
+j["section"]["key"]
 ```
 
 ### convert map to ini
@@ -24,6 +27,9 @@ j3 := ini.Dumps(j2)
 ### parse file
 ```go
 j := ini.Load("file.ini")
+
+// get a key
+j["section"]["key"]
 ```
 
 ### convert map to ini and write it to a file
