@@ -26,7 +26,7 @@ j3 := ini.Dumps(j2)
 
 ### parse file
 ```go
-j := ini.Load("file.ini")
+j, _ := ini.Load("file.ini")
 
 // get a key
 j["section"]["key"]

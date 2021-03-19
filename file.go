@@ -7,6 +7,7 @@ import (
 
 func Load(path string) (map[SectionKey]Section, error) {
 	f, err := os.Open(path)
+	defer f.Close()
 
 	content, _ := ioutil.ReadAll(f)
 

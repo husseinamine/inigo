@@ -22,7 +22,7 @@ func TestLoads(t *testing.T) {
 
 	Dump(j2, "test.ini")
 
-	j3 := Load("test.ini")
+	j3, _ := Load("test.ini")
 
 	fmt.Println(j3["main"]["key"])
 }
