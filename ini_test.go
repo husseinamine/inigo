@@ -19,4 +19,10 @@ func TestLoads(t *testing.T) {
 	j2["debug"]["keyfsafdsa"] = "value::==1=23=:??!#?/'\"a\"'"
 
 	fmt.Println(Dumps(j2))
+
+	Dump("test.ini", j2)
+
+	j3 := Load("test.ini")
+
+	fmt.Println(j3["main"]["key"])
 }
